@@ -5,7 +5,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import { useAuth0 } from '@auth0/auth0-react';
 
 import { deleteProductRequest } from '../actions/productAction';
-import { filterProductsByUserIdSelector, sortExpiryDateSelector } from '../selectors/productSelector';
+import { filterProductsByUserIdSelector } from '../selectors/productSelector';
 
 import ProductCard from '../components/ProductCard';
 
@@ -31,7 +31,6 @@ function Dashboard() {
 	const history = useHistory();
 	const { user } = useAuth0();
 	const products = useSelector(filterProductsByUserIdSelector(user.sub));
-	// const products = useSelector(sortExpiryDateSelector);
 
 	const handleDelete = (id) => {
 		dispatch(deleteProductRequest(id));
