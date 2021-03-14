@@ -2,6 +2,7 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { useAuth0 } from '@auth0/auth0-react';
 
+import Hidden from '@material-ui/core/Hidden';
 import LoginButton from './LoginButton';
 import LogoutButton from './LogoutButton';
 import SignupButton from './SignupButton';
@@ -23,7 +24,9 @@ const AuthenticationButton = () => {
 	) : (
 		<div className={classes.root}>
 			<LoginButton />
-			<SignupButton />
+			<Hidden xsDown>
+				<SignupButton />
+			</Hidden>
 		</div>
 	);
 };

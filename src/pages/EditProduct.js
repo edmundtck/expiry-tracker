@@ -26,9 +26,15 @@ const useStyles = makeStyles((theme) => ({
 	form: {
 		maxWidth: '30rem'
 	},
+	gridContainer: {
+		[theme.breakpoints.down('xs')]: {
+			flexDirection: 'column'
+		}
+	},
 	btn: {
-		marginTop: theme.spacing(1),
-		marginLeft: theme.spacing(1)
+		[theme.breakpoints.down('xs')]: {
+			width: '100%'
+		}
 	}
 }));
 
@@ -77,7 +83,7 @@ function EditProduct() {
 			<Container>
 				<h1>Edit Product</h1>
 				<form onSubmit={handleSubmit} className={classes.form}>
-					<Grid container spacing={3}>
+					<Grid className={classes.gridContainer} container spacing={3}>
 						<Grid item sm={12}>
 							<TextField
 								name="product"
@@ -123,9 +129,11 @@ function EditProduct() {
 								required
 							/>
 						</Grid>
-						<Button type="submit" className={classes.btn} variant="contained" color="primary">
-							Update
-						</Button>
+						<Grid item sm={12}>
+							<Button type="submit" className={classes.btn} variant="contained" color="primary">
+								Update
+							</Button>
+						</Grid>
 					</Grid>
 				</form>
 			</Container>

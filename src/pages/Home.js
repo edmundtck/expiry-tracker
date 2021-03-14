@@ -15,6 +15,11 @@ const useStyles = makeStyles((theme) => ({
 		background: '#8bc34a',
 		height: 'calc(100vh - 64px)'
 	},
+	title: {
+		[theme.breakpoints.down('xs')]: {
+			fontSize: '3.5rem'
+		}
+	},
 	container: {
 		display: 'flex',
 		justifyContent: 'center',
@@ -41,7 +46,7 @@ function Home() {
 			<Container className={classes.container}>
 				<Grid container justify="center" alignItems="center">
 					<Grid item sm={6}>
-						<Typography variant="h2" gutterBottom>
+						<Typography className={classes.title} variant="h2" gutterBottom>
 							Expiry Tracker
 						</Typography>
 						<Typography variant="body1" gutterBottom>
